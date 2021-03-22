@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> UNSDG 6 and 14: Landing Page </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        
+        <style>
+            * {box-sizing: border-box}
+
+            /* Set height of body and the document to 100% */
+            body, html {
+                height: 100%;
+        margin: 0;
+        font-family: Arial;
+            }
+
+            /* Style tab links */
+            .tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+            .tablink:hover {
+  background-color: #777;
+}
+
+            /* Style the tab content (and add height:100% for full page content) */
+            .tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+            #Home {background-color: #57cce6;}
+            #PAGE1  {background-color: #4EBFE6;}
+            #PAGE2 {background-color: #3798D5;}
+            #PAGE3 {background-color: #45b1e6;}
+        </style>
+    </head>
+<!-- Unsdg 6 color: #4EBFE6, Unsdg 14 color: #3798D5-->
+    <body>
+        
+        <canvas
+                
+            id="myCanvas" width="1440" height="100"
+            style="border:1px solid #c3c3c3;">
+        
+        </canvas>
+        <button class="w3-button w3-green" onclick="document.getElementById('id01').style.display='block'">+</button> 
+
+        <div id="id01" class="w3-panel w3-blue w3-display-container" style="display:none">
+            <span onclick="this.parentElement.style.display='none'"
+            class="w3-button w3-red w3-display-topright">x</span>
+            <p>Click on the X to close this panel.</p>
+            <button class="tablink" onclick="openPage('Home', this, '#57cce6')" onmouseover="openPage('Home', this, '#4eb6cc')" id="defaultOpen">Home</button>
+            <button class="tablink" onclick="openPage('PAGE1', this, '#4EBFE6')" onmouseover="openPage('PAGE1', this, '#45a8cc')" >SDG 6</button>
+            <button class="tablink" onclick="openPage('PAGE2', this, '#3798D5')" onmouseover="openPage('PAGE2', this, '#3186bd')" >SDG 14</button>
+            <button class="tablink" onclick="openPage('PAGE3', this, '#45b1e6')" onmouseover="openPage('PAGE3', this, '#3b97c4')">Connections</button>
+
+            <div id="Home" class="tabcontent">
+                <h3>Title</h3>
+                <p>Paragraph</p>
+            </div>
+
+            <div id="PAGE1" class="tabcontent">
+                <h3>Title</h3>
+                <p>Paragraph</p> 
+            </div>
+
+            <div id="PAGE2" class="tabcontent">
+                <h3>Title</h3>
+                <p>Paragraph</p>
+            </div>
+
+            <div id="PAGE3" class="tabcontent">
+                <h3>Title</h3>
+                <p>Paragraph</p>
+            </div>
+            <br>
+        </div>
+        
+        
+
+
+        
+
+
+                
+        <script>
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            
+            ctx.fillStyle= '#4EBFE6';
+            ctx.beginPath();
+            ctx.moveTo(770, 0);
+            ctx.lineTo(650, 100);
+            ctx.lineTo(0,100);
+            ctx.lineTo(0,0);
+            ctx.lineTo(710,0);
+            ctx.closePath()
+            ctx.fill();
+            
+            ctx.fillStyle= '#3898D5';
+            ctx.beginPath();
+            ctx.moveTo(770, 0);
+            ctx.lineTo(650, 100);
+            ctx.lineTo(1440,100);
+            ctx.lineTo(1440,0);
+            ctx.lineTo(710,0);
+            ctx.closePath()
+            ctx.fill();
+            
+            function openPage(pageName,elmnt,color) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+                tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.backgroundColor = color;
+            }
+
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click();
+            
+        </script>
+        
+        
+        
+    </body>
+</html>
